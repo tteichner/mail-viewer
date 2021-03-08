@@ -26,7 +26,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/postal-mime/dist/postal-mime.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mail-viewer"
+    }
+  },
+  "defaultProject": "mail-viewer",
+  "cli": {
+    "analytics": "2f69f26d-b1f7-43d5-a571-d8a66746a800"
+  }
 }
