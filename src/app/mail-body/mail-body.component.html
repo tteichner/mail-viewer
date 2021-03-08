@@ -1,4 +1,18 @@
-<h3>Email Inhalte</h3>
-<div>
-  <pre>{{text}}</pre>
+<div *ngIf="parsed">
+  <h3>Email: {{parsed.subject}}</h3>
+
+  <div *ngIf="parsed.attachments && parsed.attachments.length">
+    <h3>Anhänge</h3>
+    <ul class="attachments-list">
+      <li *ngFor="let file of parsed.attachments">
+        <a (click)="download(file)">{{file.filename}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div *ngIf="parsed.html" [innerHTML]="parsed.html | safeHtml"></div>
+    <pre *ngIf="!parsed.html" class="content">{{parsed?.text.trim()}}</pre>
+  </div>
+
 </div>

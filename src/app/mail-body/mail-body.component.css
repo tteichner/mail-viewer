@@ -1,0 +1,11 @@
+.attachments-list a {
+  text-decoration: underline;
+}
+
+.attachments-list {
+  cursor: pointer;
+}
+
+.content {
+  background: #fff;
+}
