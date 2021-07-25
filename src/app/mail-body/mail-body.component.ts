@@ -52,9 +52,14 @@ export class MailBodyComponent implements OnInit {
 
     this.config = await this.http.get<any>(`assets/config.json`).toPromise();
 
+    let url = `${this.config.api}/${this.mailId}`;
+    if (this.config.api.match(/{mailId}/)) {
+      url = this.config.api.replace(/{mailId}/, this.mailId);
+    }
+
     const parser = new postalMime.default();
     const email = await this.http
-      .get<Blob>(`${this.config.api}/${this.mailId}`, {
+      .get<Blob>(url, {
         observe: 'response',
         responseType: 'blob' as 'json'
       }).toPromise();

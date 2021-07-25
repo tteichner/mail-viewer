@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "node server/main.js &",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -19,7 +20,9 @@
     "@angular/platform-browser": "~10.1.6",
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
+    "cors": "^2.8.5",
     "dompurify": "^2.2.6",
+    "express": "^4.17.1",
     "postal-mime": "^1.0.12",
     "rxjs": "^6.6.6",
     "tslib": "^2.0.0",
