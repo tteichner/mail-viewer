@@ -1,12 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserModule } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        RouterTestingModule.withRoutes([]),
+        BrowserModule,
+      ],
       declarations: [
         AppComponent
       ],
+      providers: [
+        {
+          provide: 'APP_VERSION',
+          useValue: '1.0.0'
+        }
+      ]
     }).compileComponents();
   });
 
@@ -19,13 +34,13 @@ describe('AppComponent', () => {
   it(`should have as title 'mail-viewer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mail-viewer');
+    expect(app.version).toBe('1.0.0');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('mail-viewer app is running!');
+    expect(compiled.querySelector('span').textContent).toContain('Version');
   });
 });
