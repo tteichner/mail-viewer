@@ -68,20 +68,15 @@ export class MailBodyComponent implements OnInit {
   }
 
   download(file: Attachment): void {
-    if (window.navigator.msSaveOrOpenBlob) {
-      const blob = new Blob([file.content]);
-      window.navigator.msSaveOrOpenBlob(blob, file.filename);
-    } else {
-      const downloadLink = document.createElement('a');
-      downloadLink.download = file.filename;
-      const blob = new Blob([file.content]);
-      downloadLink.href = window.URL.createObjectURL(blob);
-      downloadLink.style.display = 'none';
-      downloadLink.onclick = (event: any) => {
-        document.body.removeChild(event.target);
-      };
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-    }
+    const downloadLink = document.createElement('a');
+    downloadLink.download = file.filename;
+    const blob = new Blob([file.content]);
+    downloadLink.href = window.URL.createObjectURL(blob);
+    downloadLink.style.display = 'none';
+    downloadLink.onclick = (event: any) => {
+      document.body.removeChild(event.target);
+    };
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
   }
 }

@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {MailBodyComponent} from './mail-body/mail-body.component';
 import {SafeHtmlPipe} from './mail-body/safe-html.pipe';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   {path: 'view', component: MailBodyComponent},
@@ -23,7 +24,12 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'APP_VERSION',
+      useValue: environment.version
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
