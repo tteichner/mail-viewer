@@ -1,6 +1,6 @@
 {
   "name": "mail-viewer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "server": "node server/main.js &",
