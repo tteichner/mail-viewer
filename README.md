@@ -1,10 +1,14 @@
 # MailViewer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+This project intends to provide a simple mail viewer for eml files. Install a recent version of node-js at least 16.20.0
+
+## Setup
+
+`npm install -g @angular/cli` To install the basic global requirements.
 
 ## Configuration
 
-Run `cp src/assets/demo.config.json src/assets/config.json` to link to the local dev server on port 3000. Your backend interface may look different so you can use the replacement token {mailId} in the api configuration option as seen in demo2 json file.
+Execute `cp src/assets/demo.config.json src/assets/config.json` to link to the local dev server on port 3000. Your backend interface may look different so you can use the replacement token {mailId} in the api configuration option as seen in demo2 json file.
 
 ## Development server
 
