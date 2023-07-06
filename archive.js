@@ -15,8 +15,9 @@ archive.on('error', function(err) {
 archive.pipe(output);
 
 // append files
-archive.file('./Readme.md', {name: 'README.md'});
+archive.file('./README.md', {name: 'README.md'});
 archive.directory('./dist/mail-viewer', 'server');
+archive.file('./package.json', {name: 'server/package.json'});
 
 //
 archive.finalize().then(() => {
