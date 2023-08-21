@@ -4,8 +4,8 @@
   <div *ngIf="parsed.attachments && parsed.attachments.length">
     <h3>Anhänge</h3>
     <ul class="attachments-list">
-      <li *ngFor="let file of parsed.attachments">
-        <a (click)="download(file)">{{file.filename}}</a>
+      <li *ngFor="let file of parsed.attachments let i=index;">
+        <a [tabindex]="i" (keyup)="download(file, $event)" (click)="download(file)">{{file.filename}}</a>
       </li>
     </ul>
   </div>

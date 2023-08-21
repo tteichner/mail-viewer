@@ -1,14 +1,14 @@
-import { Component, Inject } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  version = '';
+    version = '';
 
-  constructor(@Inject('APP_VERSION') private versionToken: string) {
-    this.version = versionToken;
-  }
+    constructor(@Inject('APP_VERSION') private versionToken: string) {
+        this.version = versionToken;
+    }
 }
