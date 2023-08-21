@@ -62,6 +62,8 @@ export class MailBodyComponent implements OnInit {
             url = this.config.api.replace(/{mailId}/, this.mailId);
         }
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const parser = new postalMime.default();
         const email = await firstValueFrom(this.http
             .get<Blob>(url, {
