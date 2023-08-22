@@ -9,7 +9,7 @@
     "release": "npm version patch -m \"Upgrade to %s\"",
     "prerelease": "chmod a+x .scripts/pre-release.sh && bash .scripts/pre-release.sh",
     "postrelease": "chmod a+x .scripts/post-release.sh && bash .scripts/post-release.sh",
-    "publish": "npm run build && node archive.js",
+    "publish": "npm run lint && npm run build && node archive.js",
     "test": "ng test",
     "lint": "ng lint"
   },
