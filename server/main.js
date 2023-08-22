@@ -4,11 +4,11 @@ var app = express();
 
 app.use(cors());
 
-app.get('/api/v1/mail/:id', function (req, res, next) {
+app.get('/api/v1/mail/:id', (req, res) => {
   const file = `${__dirname}/assets/${req.params.id}.eml`;
-  res.download(file); // Set disposition and send it.
+  res.download(file);
 });
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('CORS-enabled web server listening on port 3000');
-})
+});
