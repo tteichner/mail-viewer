@@ -1,9 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
+
+import {AppComponent} from './app.component';
 import {MailBodyComponent} from './mail-body/mail-body.component';
 import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import {environment} from '../environments/environment';

@@ -29,7 +29,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/postal-mime/dist/postal-mime.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

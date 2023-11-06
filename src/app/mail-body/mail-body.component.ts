@@ -1,34 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
-import {firstValueFrom} from "rxjs";
-
-export interface Attachment {
-    content: ArrayBuffer;
-    contentId: string;
-    disposition: string;
-    filename: string;
-    mimeType: string;
-    related: boolean;
-}
-
-export interface Receiver {
-    address: string;
-    name: string;
-}
-
-export interface Mail {
-    attachments: Attachment[];
-    html: string;
-    text: string;
-    cc?: Receiver[];
-    date: string;
-    from: Receiver;
-    messageId?: string;
-    returnPath?: string;
-    subject: string;
-    to: Receiver[];
-}
+import {firstValueFrom} from 'rxjs';
+import PostalMime, {Attachment, Email} from 'postal-mime';
 
 export interface MailBodyServerConfig {
     api: string;
@@ -40,7 +14,7 @@ export interface MailBodyServerConfig {
     styleUrls: ['./mail-body.component.css']
 })
 export class MailBodyComponent implements OnInit {
-    parsed: Mail;
+    parsed: Email;
 
     private config: MailBodyServerConfig = {
         api: ''
@@ -62,9 +36,7 @@ export class MailBodyComponent implements OnInit {
             url = this.config.api.replace(/{mailId}/, this.mailId);
         }
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const parser = new postalMime.default();
+        const parser = new PostalMime();
         const email = await firstValueFrom(this.http
             .get<Blob>(url, {
                 observe: 'response',

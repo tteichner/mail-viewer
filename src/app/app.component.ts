@@ -6,9 +6,9 @@ import {Component, Inject} from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    version = '';
+    version: string;
 
     constructor(@Inject('APP_VERSION') private versionToken: string) {
-        this.version = versionToken;
+        this.version = this.versionToken;
     }
 }
