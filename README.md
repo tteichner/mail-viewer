@@ -1,6 +1,6 @@
 # MailViewer
 
-This project intends to provide a simple mail viewer for eml files. Install a LTS version 18+ of node-js
+This project intends to provide a simple mail viewer for eml files. Install a LTS version 20+ of node-js
 
 ## Setup
 
