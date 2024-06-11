@@ -4,7 +4,7 @@ This project intends to provide a simple mail viewer for eml files. Install a LT
 
 ## Setup
 
-`npm install -g @angular/cli` To install the basic global requirements.
+`npm install -g @angular/cli npm-check-updates` To install the basic global requirements.
 
 ## Configuration
 
