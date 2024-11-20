@@ -11,7 +11,8 @@ export interface MailBodyServerConfig {
 @Component({
     selector: 'app-mail-body',
     templateUrl: './mail-body.component.html',
-    styleUrls: ['./mail-body.component.css']
+    styleUrls: ['./mail-body.component.css'],
+    standalone: false
 })
 export class MailBodyComponent implements OnInit {
     parsed: Email;
