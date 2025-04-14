@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -6,10 +6,13 @@ import {Component, Inject} from '@angular/core';
     styleUrls: ['./app.component.css'],
     standalone: false
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     version: string;
 
     constructor(@Inject('APP_VERSION') private versionToken: string) {
+    }
+
+    ngOnInit(): void {
         this.version = this.versionToken;
     }
 }
