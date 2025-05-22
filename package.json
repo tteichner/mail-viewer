@@ -14,7 +14,7 @@
     "publish": "npm run build",
     "postpublish": "node archive.js",
     "test": "ng test",
-    "test:lint": "eslint src --no-error-on-unmatched-pattern"
+    "test:lint": "eslint src"
   },
   "private": true,
   "dependencies": {
