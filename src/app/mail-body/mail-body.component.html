@@ -1,18 +1,25 @@
-<div *ngIf="parsed">
-  <h3>Email: {{parsed.subject}}</h3>
-
-  <div *ngIf="parsed.attachments && parsed.attachments.length">
-    <h3>Anhänge</h3>
-    <ul class="attachments-list">
-      <li *ngFor="let file of parsed.attachments let i=index;">
-        <a [tabindex]="i" (keyup)="download(file, $event)" (click)="download(file)">{{file.filename}}</a>
-      </li>
-    </ul>
+@if (parsed) {
+  <div>
+    <h3>Email: {{parsed.subject}}</h3>
+    @if (parsed.attachments && parsed.attachments.length) {
+      <div>
+        <h3>Anhänge</h3>
+        <ul class="attachments-list">
+          @for (file of parsed.attachments; track file; let i=$index) {
+            <li>
+              <a [tabindex]="i" (keyup)="download(file, $event)" (click)="download(file)">{{file.filename}}</a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+    <div class="content">
+      @if (parsed.html) {
+        <div [innerHTML]="parsed.html | safeHtml"></div>
+      }
+      @if (!parsed.html) {
+        <pre class="content">{{parsed?.text.trim()}}</pre>
+      }
+    </div>
   </div>
-
-  <div class="content">
-    <div *ngIf="parsed.html" [innerHTML]="parsed.html | safeHtml"></div>
-    <pre *ngIf="!parsed.html" class="content">{{parsed?.text.trim()}}</pre>
-  </div>
-
-</div>
+}
