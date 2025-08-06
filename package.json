@@ -12,7 +12,7 @@
     "prerelease": "chmod a+x .scripts/pre-release.sh && bash .scripts/pre-release.sh",
     "postrelease": "chmod a+x .scripts/post-release.sh && bash .scripts/post-release.sh",
     "publish": "npm run build",
-    "postpublish": "node archive.js",
+    "postpublish": "node .scripts/archive.js",
     "test": "ng test",
     "test:lint": "eslint src"
   },

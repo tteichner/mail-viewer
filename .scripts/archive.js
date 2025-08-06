@@ -16,7 +16,7 @@ archive.pipe(output);
 
 // append files
 archive.file('./README.md', {name : 'README.md'});
-archive.directory('./dist/mail-viewer/browser', 'servnpm run releaseer', {name: 'server'});
+archive.directory('./dist/mail-viewer/browser', 'server', {name: 'server'});
 archive.file('./package.json', {name : 'server/package.json'});
 
 // write the archive
