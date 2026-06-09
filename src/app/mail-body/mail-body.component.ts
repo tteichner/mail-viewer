@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {firstValueFrom} from 'rxjs';
@@ -12,6 +12,7 @@ export interface MailBodyServerConfig {
     selector: 'app-mail-body',
     templateUrl: './mail-body.component.html',
     styleUrls: ['./mail-body.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MailBodyComponent implements OnInit {
