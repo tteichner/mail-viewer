@@ -21,4 +21,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Access demo app
 
-Navigate to the viewer part `http://localhost:4200/?mailId=demo` this will load the demo email from the demo server.
+Navigate to the viewer part `http://localhost:4201/?mailId=demo` this will load the demo email from the demo server.

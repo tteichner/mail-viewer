@@ -11,9 +11,10 @@ export class AppComponent implements OnInit {
     version: string;
 
     constructor(@Inject('APP_VERSION') private versionToken: string) {
+        this.version = this.versionToken;
     }
 
     ngOnInit(): void {
-        this.version = this.versionToken;
+        console.log('App started in version', this.version);
     }
 }
