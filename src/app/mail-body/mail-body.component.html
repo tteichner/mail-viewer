@@ -17,8 +17,8 @@
       @if (parsed.html) {
         <div [innerHTML]="parsed.html | safeHtml"></div>
       }
-      @if (!parsed.html) {
-        <pre class="content">{{parsed?.text.trim()}}</pre>
+      @if (!parsed.html && parsed.text) {
+        <pre class="content">{{parsed.text.trim()}}</pre>
       }
     </div>
   </div>
