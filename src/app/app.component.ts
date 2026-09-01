@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -8,9 +8,11 @@ import {Component, Inject, OnInit, ChangeDetectionStrategy} from '@angular/core'
     standalone: false
 })
 export class AppComponent implements OnInit {
+    private versionToken = inject<string>('APP_VERSION' as any);
+
     version: string;
 
-    constructor(@Inject('APP_VERSION') private versionToken: string) {
+    constructor() {
         this.version = this.versionToken;
     }
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ChangeDetectorRef, inject } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {firstValueFrom, takeWhile} from 'rxjs';
@@ -16,18 +16,17 @@ export interface MailBodyServerConfig {
     standalone: false
 })
 export class MailBodyComponent implements OnInit, OnDestroy {
+    private http = inject(HttpClient);
+    private route = inject(ActivatedRoute);
+    private cdr = inject(ChangeDetectorRef);
+
     parsed: Email | null = null;
 
     private config: MailBodyServerConfig = {
         api: ''
     };
     private mailId: string | null = null;
-    private alive: boolean = false;
-
-    constructor(private http: HttpClient,
-                private route: ActivatedRoute,
-                private cdr: ChangeDetectorRef) {
-    }
+    private alive = false;
 
     ngOnDestroy(): void {
         this.alive = false;
