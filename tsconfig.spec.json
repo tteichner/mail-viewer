@@ -1,20 +1,34 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "target": "es2022",
+    "moduleResolution": "bundler",
     "types": [
-      "jasmine", "node"
-    ]
+      "jasmine"
+    ],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "files": [
     "src/test.ts",
     "src/polyfills.ts"
+  ],
+  "exclude": [
   ],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
   ],
   "angularCompilerOptions": {
-    "strictTemplates": false
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    },
+    "strictTemplates": true
   }
 }
